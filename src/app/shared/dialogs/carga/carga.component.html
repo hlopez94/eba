@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Calculando primer</h2>
+<mat-dialog-content>
+
+    <mat-progress-spinner 
+    mode="determinate" 
+    color="primary"
+    [value]="porcentajeCompletado"></mat-progress-spinner>
+
+    <p class="mat-body-2">{{textoContenido}}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions *ngIf="mostrarBotones" align="end">
+    <button mat-raised-button color="secondary" mat-dialog-close>Cerrar</button>
+  </mat-dialog-actions>

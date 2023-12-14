@@ -1,0 +1,13 @@
+.container {
+    height: 100%;
+    width: 100vw;   
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.body {
+    height: calc(100% - 4em);
+    overflow: scroll;
+    padding: 2em;
+}

@@ -1,0 +1,94 @@
+<form #formPrimers id="formPrimers">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Template 1</mat-label>
+        <textarea matInput [formControl]="template1"></textarea>
+        <mat-error *ngIf="template1.hasError('required')"> Es necesario que ingrese el template 1</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Template 2</mat-label>
+        <textarea matInput [formControl]="template2"></textarea>
+        <mat-error *ngIf="template2.hasError('required')"> Es necesario que ingrese el template 2</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Template 3</mat-label>
+        <textarea matInput [formControl]="template3"></textarea>
+        <mat-error *ngIf="template3.hasError('required')"> Es necesario que ingrese el template 3</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="especieASelect">{{especieA ? especieA.nombre : 'Elija una especie'}}</mat-label>
+        <mat-select [(value)]="especieA" id="especieASelect">
+            <mat-option [value]="null">-</mat-option>
+            <mat-option *ngFor="let especie of especies" [value]="especie">
+                {{especie.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="especieASelect">{{especieB ? especieB.nombre : 'Elija una especie'}}</mat-label>
+        <mat-select [(value)]="especieB">
+            <mat-option [value]="null">Sin seleccionar</mat-option>
+            <mat-option *ngFor="let especie of especies" [value]="especie">
+                {{especie.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label for="especieASelect">{{especieC ? especieC.nombre : 'Elija una especie'}}</mat-label>
+        <mat-select [(value)]="especieC">
+            <mat-option [value]="null">Sin seleccionar</mat-option>
+            <mat-option *ngFor="let especie of especies" [value]="especie">
+                {{especie.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <p class="mat-subheading-1 form-titulo">Parametros Primer:</p>
+    <p>
+        <label>Producto de PCR</label>
+        <mat-form-field appearance="standard">
+            <mat-label>Desde:</mat-label>
+            <input matInput type="number" name="productoPCRDesde" placeholder="" [(ngModel)]="primer.productoPCR.desde">
+        </mat-form-field>  
+        <mat-form-field appearance="standard">
+            <mat-label>Hasta:</mat-label>
+            <input matInput type="number" name="productoPCRhasta" placeholder="" [(ngModel)]="primer.productoPCR.hasta">
+            <span matSuffix>pb</span>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <label>Largo del Primer</label>
+        <mat-form-field appearance="standard">
+            <mat-label>Desde:</mat-label>
+            <input matInput type="number" name="largoPrimerdesde" placeholder="" [(ngModel)]="primer.largoPrimer.desde">
+        </mat-form-field>  
+        <mat-form-field appearance="standard">
+            <mat-label>Hasta:</mat-label>
+            <input matInput type="number" name="largoPrimerhasta" placeholder="" [(ngModel)]="primer.largoPrimer.hasta">
+        </mat-form-field>
+    </p>
+    <p>
+        <label>Tm (Melting Temp)</label>
+        <mat-form-field appearance="standard">
+            <mat-label>Desde:</mat-label>
+            <input matInput type="number" name="meltingTemdesde" placeholder="" [(ngModel)]="primer.meltingTem.desde">
+        </mat-form-field>  
+        <mat-form-field appearance="standard">
+            <mat-label>Hasta:</mat-label>
+            <input matInput type="number" name="meltingTemhasta" placeholder="" [(ngModel)]="primer.meltingTem.hasta">
+            <span matSuffix>°C</span>
+        </mat-form-field>
+    </p>
+
+    <p class="form-actions">
+        <button mat-raised-button color="primary" (click)="calcular()">CALCULAR</button>
+        <button mat-button color="secondary" (click)="clearForm()">LIMPIAR</button>
+    </p>
+    
+</form>

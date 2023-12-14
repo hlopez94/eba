@@ -1,0 +1,10 @@
+mat-dialog-content{
+    
+    margin: auto;
+    width: calc(100% - 48px);
+    text-align: center;
+
+    mat-progress-spinner{
+        margin: auto;
+    }
+}

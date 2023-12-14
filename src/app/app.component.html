@@ -1,0 +1,17 @@
+<div class="container">
+
+  <mat-toolbar #header color="primary">
+    <span routerLink="/">{{title}}</span>
+  </mat-toolbar>
+
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
+
+  <mat-toolbar color="secondary" #footer>
+    <p class="mat-body-1">
+      Herramienta para Analisis Bioinformáticos.
+    </p>
+  </mat-toolbar>
+  
+</div>
